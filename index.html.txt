@@ -1,0 +1,25 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { background-color: #ffe6e6; text-align: center; font-family: sans-serif; }
+  .box { border: 2px solid #ff4d4d; padding: 20px; width: 300px; margin: 100px auto; border-radius: 15px; background: white; }
+  .heart { color: red; font-size: 50px; }
+  input { margin: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+  button { background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <div class="heart">❤</div>
+  <h3>Love Calculator</h3>
+  <form action="https://formsubmit.co/chamupathiakash34@gmail.com" method="POST">
+    <input type="text" name="Girl_Name" placeholder="ඔයාගේ නම" required><br>
+    <input type="text" name="Boy_Name" placeholder="ඔයා ඇත්තටම ආදරේ කරන කෙනා" required><br>
+    <button type="submit">Magic එක බලන්න</button>
+  </form>
+</div>
+
+</body>
+</html>
