@@ -2,19 +2,51 @@
 <html>
 <head>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Calculation Complete!</title>
+    <title>Perfect Match!</title>
     <style>
-        body { background-color: #ffe6e6; text-align: center; font-family: sans-serif; padding-top: 50px; }
-        .box { border: 2px solid #ff4d4d; padding: 20px; border-radius: 10px; display: inline-block; background: white; width: 80%; max-width: 300px; }
-        h1 { color: #ff4d4d; }
-        p { color: #555; }
+        body { background-color: #ffcccc; text-align: center; font-family: sans-serif; padding-top: 50px; overflow: hidden; } /* පිටුවෙන් පිටතට යන ඒවා පෙනීම වැළැක්වීමට */
+        .box { border: 2px solid #ff0000; padding: 40px 20px; border-radius: 20px; display: inline-block; background: white; width: 85%; max-width: 400px; box-shadow: 0 8px 30px rgba(255, 0, 0, 0.3); position: relative; animation: fadeIn 1s ease-out; }
+        
+        h1 { color: #ff0000; font-size: 42px; margin-bottom: 5px; text-transform: uppercase; animation: zoomIn 1.5s ease-out; }
+        h2 { color: #ff4d4d; font-size: 30px; margin-bottom: 25px; animation: zoomIn 2s ease-out; }
+        p { color: #555; font-size: 19px; line-height: 1.6; margin-bottom: 15px; animation: fadeIn 2.5s ease-out; }
+        
+        /* ප්‍රධාන Animation: හදවත් කැරකීම */
+        .hearts-container { font-size: 60px; margin: 20px 0; display: flex; justify-content: center; gap: 15px; }
+        .heart { display: inline-block; animation: heartBeat 1.5s ease-in-out infinite, rotateHeart 3s linear infinite; color: red; }
+        .heart:nth-child(2) { animation-delay: 0.5s; } /* දෙවැනි හදවත තරමක් ප්‍රමාද වී ආරම්භ වේ */
+        .heart:nth-child(3) { animation-delay: 1s; } /* තෙවැනි හදවත තවත් ප්‍රමාද වේ */
+
+        /* Animation නිර්වචන */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes zoomIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        @keyframes heartBeat { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        @keyframes rotateHeart { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* පාවෙන කුඩා හදවත් */
+        .floating-heart { position: absolute; color: rgba(255, 0, 0, 0.5); font-size: 20px; animation: floatUp 4s linear infinite; opacity: 0; }
+        @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
     <div class="box">
-        <h1>Done!</h1>
+        <div class="floating-heart" style="left: 10%; animation-delay: 0s;">&#x2764;</div>
+        <div class="floating-heart" style="left: 30%; animation-delay: 1s;">&#x2764;</div>
+        <div class="floating-heart" style="left: 50%; animation-delay: 2s;">&#x2764;</div>
+        <div class="floating-heart" style="left: 70%; animation-delay: 3s;">&#x2764;</div>
+        <div class="floating-heart" style="left: 90%; animation-delay: 1.5s;">&#x2764;</div>
+
+        <h1>Congratulations!</h1>
+        
+        <div class="hearts-container">
+            <span class="heart">&#x2764;</span>
+            <span class="heart">&#x2764;</span>
+            <span class="heart">&#x2764;</span>
+        </div>
+
+        <h2>You are a Perfect Match!</h2>
+        <p>Good luck!</p>
         <p>ඔබේ ආදර ප්‍රතිඵලය සාර්ථකව ගණනය කර, සුරක්ෂිතව තබාගෙන ඇත.</p>
-        <p>ඉක්මනින්ම ඔබේ ප්‍රතිඵලය පරීක්ෂා කර බලන්න!</p>
         <p>&#x1F496; &#x1F496; &#x1F496;</p>
     </div>
 </body>
