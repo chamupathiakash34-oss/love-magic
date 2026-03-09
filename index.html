@@ -2,55 +2,31 @@
 <html>
 <head>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Love Calculator</title>
+    <title>Love Match v2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #ffe6e6; text-align: center; font-family: sans-serif; }
-        .box { border: 2px solid #ff4d4d; padding: 20px; border-radius: 10px; display: inline-block; margin-top: 50px; background: white; width: 80%; max-width: 300px; position: relative; }
-        .heart { color: red; font-size: 50px; margin-bottom: 10px; }
-        input { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 90%; }
-        button { background: #ff4d4d; color: white; border: none; padding: 12px 20px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 15px; width: 100%; }
-        #result { display: none; font-size: 24px; font-weight: bold; color: #ff4d4d; margin-top: 20px; }
-        #loading { display: none; font-size: 18px; color: #555; margin-top: 15px; }
-        .loader { border: 4px solid #f3f3f3; border-radius: 50%; border-top: 4px solid #ff4d4d; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 10px auto; display: none; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        body { background: #fff0f5; font-family: 'Poppins', sans-serif; text-align: center; padding: 20px; }
+        .container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        h2 { color: #ff4d6d; }
+        input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; }
+        button { background: #ff4d6d; color: white; border: none; padding: 15px; width: 100%; border-radius: 10px; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #ff758f; }
+        .note { font-size: 12px; color: #888; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="heart">&#x2764;</div>
-        <h3>Love Calculator</h3>
-        
-        <form id="loveForm" action="https://formsubmit.co/chamupathiakash34@gmail.com" method="POST">
-            <input type="hidden" name="_next" value="https://love-magic.netlify.app/results.html">
-            <input type="text" name="Girl_Name" placeholder="Her Name" required>
-            <input type="text" name="Boy_Name" placeholder="His Name" required>
-            <button type="submit">Calculate Match</button>
+    <div class="container">
+        <h2>❤️ Love Match v2 ❤️</h2>
+        <form action="results.html" method="GET">
+            <input type="text" name="boyName" placeholder="His Name" required>
+            <input type="text" name="boyImg" placeholder="His Photo Link (URL)" required>
+            <hr>
+            <input type="text" name="girlName" placeholder="Her Name" required>
+            <input type="text" name="girlImg" placeholder="Her Photo Link (URL)" required>
+            
+            <button type="submit">Check Match ✨</button>
         </form>
-
-        <div id="loading">
-            <div class="loader" id="loader"></div>
-            ගණනය කරමින් පවතී...
-        </div>
-        <div id="result">99% Match! <br> &#x1F491;</div>
+        <p class="note">*ඔයාගේ ෆොටෝ එකක Link එකක් ගන්න PostImages.org වගේ සයිට් එකක් පාවිච්චි කරන්න.</p>
     </div>
-
-    <script>
-        document.getElementById('loveForm').addEventListener('submit', function(e) {
-            // පෝරමය සාමාන්‍ය පරිදි ඉදිරිපත් කිරීම වැළැක්වීම (ඊමේල් එක යන එක නවත්වන්නේ නැහැ)
-            // e.preventDefault(); // මෙය අක්‍රිය කරන්න, එවිට FormSubmit ක්‍රියා කරයි
-            
-            // "Calculate" බොත්තම සඟවන්න
-            document.querySelector('button').style.display = 'none';
-            // Loading සලකුණ පෙන්වන්න
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('loader').style.display = 'block';
-            
-            // තත්පර 3කට පසු Loading සඟවා, ප්‍රතිඵලය පෙන්වන්න
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('result').style.display = 'block';
-            }, 3000); // 3000ms = තත්පර 3යි
-        });
-    </script>
 </body>
 </html>
